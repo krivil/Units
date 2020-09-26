@@ -1,6 +1,5 @@
 ﻿namespace Units {
     using System;
-    using System.Buffers;
     using System.Globalization;
 
     public readonly partial struct ByteSize : IEquatable<ByteSize>, IComparable<ByteSize> {

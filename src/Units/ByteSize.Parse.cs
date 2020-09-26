@@ -6,8 +6,7 @@
 
     public readonly partial struct ByteSize {
         public static readonly Dictionary<string, long> DefaultMatchesForUnitsOfMeasure =
-            new Dictionary<string, long>(StringComparer.OrdinalIgnoreCase)
-            {
+            new Dictionary<string, long>(StringComparer.OrdinalIgnoreCase) {
                 ["kb"] = _oneKiloByte,
                 ["kilobyte"] = _oneKiloByte,
                 ["kilobytes"] = _oneKiloByte,
@@ -67,8 +66,7 @@
             IDictionary<string, long> unitsOfMeasure) =>
             TryParse(s.AsSpan(), provider, out size, unitsOfMeasure);
 
-        public static bool TryParse(ReadOnlySpan<char> span, IFormatProvider provider, out ByteSize size, IDictionary<string, long> unitsOfMeasure)
-        {
+        public static bool TryParse(ReadOnlySpan<char> span, IFormatProvider provider, out ByteSize size, IDictionary<string, long> unitsOfMeasure) {
             ReadOnlySpan<char> trimmedFromStart = SkipWhitespace(span);
             ReadOnlySpan<char> doublePart = TakeUntilWhitespace(trimmedFromStart, out ReadOnlySpan<char> afterDouble);
 
@@ -105,8 +103,7 @@
         public static ByteSize Parse(string text, IFormatProvider provider, IDictionary<string, long> unitsOfMeasure) =>
             Parse(text.AsSpan(), provider, unitsOfMeasure);
 
-        public static ByteSize Parse(ReadOnlySpan<char> span, IFormatProvider provider, IDictionary<string, long> unitsOfMeasure)
-        {
+        public static ByteSize Parse(ReadOnlySpan<char> span, IFormatProvider provider, IDictionary<string, long> unitsOfMeasure) {
             ReadOnlySpan<char> trimmedFromStart = SkipWhitespace(span);
             ReadOnlySpan<char> doublePart = TakeUntilWhitespace(trimmedFromStart, out ReadOnlySpan<char> afterDouble);
 
